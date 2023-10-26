@@ -1,0 +1,65 @@
+# ---- Java/Spring ----
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# built artifacts
+/target/
+/out/
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code files
+.vscode/
+
+# ---- Angular/Frontend ----
+
+# dependencies
+contact/node_modules
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compiled files
+contact/dist/
+contact/tmp/
+contact/out-tsc/
+
+# IDE files
+contact/.angular/
+
+# misc
+.sass-cache
+/connect.lock
+/coverage/
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings/
+
+# System Files
+.DS_Store
+Thumbs.db

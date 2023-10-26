@@ -1,0 +1,27 @@
+<router-outlet>
+  <div class="container mt-4">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un contact..." class="form-control mb-4">
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let contact of filteredContacts | slice:(page-1)*pageSize:page*pageSize">
+      <div class="card">
+        <div class="card-header">
+          {{ contact.firstName }} {{ contact.lastName }}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Email: {{ contact.email }}</li>
+          <li class="list-group-item">Rue: {{ contact.address.street }}</li>
+          <li class="list-group-item">Ville: {{ contact.address.city }}</li>
+          <li class="list-group-item">Code Postal: {{ contact.address.zip }}</li>
+          <li class="list-group-item">Pays: {{ contact.address.country }}</li>
+          <ul>
+            <li *ngFor="let phone of contact.phones">{{ phone.phoneKind }}: {{ phone.phoneNumber }}</li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+</router-outlet>
