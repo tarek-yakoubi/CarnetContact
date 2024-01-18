@@ -1,0 +1,22 @@
+<div class="contact-group-container">
+  <h2>Nom du groupe : {{ contactGroup.groupName }}</h2>
+<div>
+  <button class="btn btn-secondary" (click)="editContactGroup(contactGroup.idContactGroup)">Modifier</button>
+  <button class="btn btn-secondary" (click)="deleteContactGroup(contactGroup.idContactGroup)">Supprimer</button>
+</div>
+  <div *ngIf="contacts && contacts.length > 0; else noContacts">
+    <h3>Contacts dans le groupe :</h3>
+    <ul>
+        <li *ngFor="let contact of contacts">
+            {{ contact.firstName }} {{ contact.lastName }}
+            <button (click)="editContact(contact.idContact)">Éditer</button>
+            <button (click)="removeContact(contact.idContact, contactGroup.idContactGroup)">Supprimer</button>
+
+        </li>
+    </ul>
+</div>
+
+  <ng-template #noContacts>
+      <p>Aucun contact dans ce groupe.</p>
+  </ng-template>
+</div>

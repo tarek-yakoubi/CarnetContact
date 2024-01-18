@@ -1,7 +1,8 @@
+import { Address } from './adresse.model';
 import { Component } from '@angular/core';
 import { Contact } from './add-contact.model';
 import { ContactService } from './add-contact.service';
-
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-add-contact',
@@ -10,16 +11,38 @@ import { ContactService } from './add-contact.service';
 })
 export class AddContactComponent {
 
-    contact: Contact = new Contact();
+    contact: Contact =  {
+      idContact: 0,
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: {
+        street: '',
+        city: '',
+        zip: '',
+        country: ''
+      },
+      phones: [ { phoneKind: 'Mobile', phoneNumber: '' }, { phoneKind: 'Fixe', phoneNumber: '' }
+      ],
+      contactGroups: []
+    };
 
-    constructor(private contactService: ContactService) { }
+    constructor(private contactService: ContactService, private router: Router) { }
 
     addContact() {
-        this.contactService.addContact(this.contact)
+      this.contact = this.contact;
+      console.log(this.contact);
+      const filledPhones = this.contact.phones.filter(phone => phone.phoneNumber !== '');
+      const contactToSend: Contact = {
+        ...this.contact,
+        phones: filledPhones
+      };
+        this.contactService.addContact(contactToSend)
             .subscribe(
                 data => {
-                    console.log(data);
+
                     alert('Contact ajouté avec succès!');
+                    this.router.navigate(['/contacts-list']);
                 },
                 error => {
                     console.error(error);

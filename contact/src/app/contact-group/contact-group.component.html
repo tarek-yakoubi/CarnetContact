@@ -1,0 +1,17 @@
+<button class="btn btn-primary mb-4" (click)="openCreateContactGroupComponent()">Créer un nouveau groupe</button>
+
+<button class="btn btn-primary mb-4" (click)="addContactToGroup() ">Ajouter un contact à un groupe</button>
+<div *ngIf="contactGroups.length; else noGroups">
+  <ul>
+    <li *ngFor="let group of contactGroups">
+      {{ group.groupName }} - {{ group.contactIds.length }} contacts
+      <button class="btn btn-secondary" (click)="editContactGroup(group.idContactGroup)">Modifier</button>
+      <button class="btn btn-secondary" (click)="getContactGroupById(group.idContactGroup)">Dive</button>
+      <button class="btn btn-secondary" (click)="deleteContactGroup(group.idContactGroup)">Supprimer</button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noGroups>
+  <p>Aucun groupe de contacts trouvé.</p>
+</ng-template>

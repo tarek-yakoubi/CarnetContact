@@ -1,0 +1,36 @@
+<router-outlet>
+  <div class="container">
+    <h2>Modification du contact</h2>
+    <div class="edit-contact-container">
+      <form [formGroup]="editContactForm" (ngSubmit)="onSubmit()">
+
+        <input formControlName="firstName" placeholder="Prénom">
+        <input formControlName="lastName" placeholder="Nom">
+        <input formControlName="email" placeholder="Email">
+
+        <div formGroupName="address">
+          <input formControlName="street" placeholder="Rue">
+          <input formControlName="city" placeholder="Ville">
+          <input formControlName="zip" placeholder="Code Postal">
+          <input formControlName="country" placeholder="Pays">
+        </div>
+
+
+        <div formArrayName="phones">
+          <div *ngFor="let phone of phones.controls; let i = index" [formGroupName]="i">
+
+            <select formControlName="phoneKind">
+              <option value="Fixe">Fixe</option>
+              <option value="Mobile">Mobile</option>
+            </select>
+            <input type="hidden" formControlName="idPhoneNum">
+            <input formControlName="phoneNumber" placeholder="Numéro de téléphone">
+            <button (click)="removePhone(i)">Supprimer</button>
+          </div>
+          <button type="button" (click)="addPhone($event)" class="btn btn-secondary">Ajouter un téléphone</button>
+         </div>
+        <button type="submit">Mettre à jour le contact</button>
+      </form>
+    </div>
+  </div>
+</router-outlet>

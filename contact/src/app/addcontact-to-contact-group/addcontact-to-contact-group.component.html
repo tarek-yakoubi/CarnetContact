@@ -1,0 +1,26 @@
+<button class="btn btn-primary mb-4" (click)="openCreateContactGroupComponent()">+</button>
+<form [formGroup]="addToGroupForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="selectedContact">Sélectionnez un contact :</label>
+<select id="selectedContact" formControlName="selectedContact">
+<option value="">Choisir un contact</option>
+<option *ngFor="let contact of availableContacts" [value]="contact.idContact">
+{{ contact.firstName }} {{ contact.lastName }}
+</option>
+</select>
+
+  </div>
+  <div>
+    <label for="selectedGroup">Sélectionnez un groupe :</label>
+    <select id="selectedGroup" formControlName="selectedGroup">
+      <option value="">Choisir un groupe</option>
+      <option *ngFor="let group of availableGroups" [value]="group.idContactGroup">
+        {{ group.groupName }}
+      </option>
+    </select>
+  </div>
+<button type="submit"
+
+[disabled]="!addToGroupForm.valid">Ajouter au groupe</button>
+
+</form>
