@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../add-contact/add-contact.service';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ContactGroup } from '../contact-group/contact-group.model';
+import { ContactDTO } from '../list-contacts/contact-dto';
 
 @Component({
   selector: 'app-edit-contact',
@@ -56,10 +57,6 @@ export class EditContactComponent {
     phoneGroup.patchValue(updatedPhone);
   }
 
-
-
-
-
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const contactId = +params['id'];
@@ -70,7 +67,6 @@ export class EditContactComponent {
           const phoneFormGroups = contact.phones.map(phone => this.fb.group(phone));
           this.editContactForm.setControl('phones', this.fb.array(phoneFormGroups));
           this.editContactForm.patchValue(contact);
-
         }
       );
     });

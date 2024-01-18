@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from '../add-contact/add-contact.model';
 import { ContactService } from '../add-contact/add-contact.service';
 import { Router } from '@angular/router';
+import { ContactDTO } from './contact-dto';
 
 @Component({
   selector: 'app-list-contacts',
@@ -20,7 +21,9 @@ export class ListContactsComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactService.getAllContacts().subscribe(data => {
+      console.log(this.contacts.forEach(contact => { contact.address = contact.address; }));
       this.contacts = data;
+      console.log('test ' + this.contacts);
       this.filteredContacts = data;
     });
   }

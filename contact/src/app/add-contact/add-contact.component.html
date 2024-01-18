@@ -1,46 +1,53 @@
 <router-outlet>
   <div class="container mt-5">
-      <form (ngSubmit)="addContact()">
-        <div></div>
-          <div class="form-group">
-              <label for="firstName">Prénom:</label>
-              <input type="text" class="form-control" id="firstName" [(ngModel)]="contact.firstName" name="firstName" required>
-          </div>
-          <div class="form-group">
-              <label for="lastName">Nom:</label>
-              <input type="text" class="form-control" id="lastName" [(ngModel)]="contact.lastName" name="lastName" required>
-          </div>
-          <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" class="form-control" id="email" [(ngModel)]="contact.email" name="email" required>
-          </div>
-          <div class="form-group">
-              <label for="street">Rue:</label>
-              <input type="text" class="form-control" id="street" [(ngModel)]="contact.address.street" name="street" required>
-          </div>
-          <div class="form-group">
-              <label for="city">Ville:</label>
-              <input type="text" class="form-control" id="city" [(ngModel)]="contact.address.city" name="city" required>
-          </div>
-          <div class="form-group">
-              <label for="zip">Code postal:</label>
-              <input type="text" class="form-control" id="zip" [(ngModel)]="contact.address.zip" name="zip" required>
-          </div>
-          <div class="form-group">
-              <label for="country">Pays:</label>
-              <input type="text" class="form-control" id="country" [(ngModel)]="contact.address.country" name="country" required>
-          </div>
-          <div class="form-group">
-              <label for="fixePhoneNumber">Téléphone Fixe:</label>
-              <input type="text" class="form-control" id="fixePhoneNumber" [(ngModel)]="contact.phones[0].phoneNumber" name="fixePhoneNumber" required>
-          </div>
-          <div class="form-group">
-              <label for="mobilePhoneNumber">Téléphone Mobile:</label>
-              <input type="text" class="form-control" id="mobilePhoneNumber" [(ngModel)]="contact.phones[1].phoneNumber" name="mobilePhoneNumber" required>
-          </div>
-          <div class="form-group">
-              <button type="submit" class="btn btn-primary">Ajouter le contact</button>
-          </div>
-      </form>
+    <form (ngSubmit)="addContact()" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="firstName" class="form-label"><i class="bi bi-person-fill"></i> Prénom:</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Entrez le prénom" [(ngModel)]="contact.firstName" name="firstName" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="lastName" class="form-label"><i class="bi bi-person-fill"></i> Nom:</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Entrez le nom" [(ngModel)]="contact.lastName" name="lastName" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label"><i class="bi bi-envelope-fill"></i> Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Entrez l'email" [(ngModel)]="contact.email" name="email" required>
+      </div>
+
+      <h5><i class="bi bi-geo-alt-fill"></i> Adresse</h5>
+      <div class="mb-3">
+        <label for="street" class="form-label">Rue:</label>
+        <input type="text" class="form-control" id="street" placeholder="Entrez la rue" [(ngModel)]="contact.address.street" name="street" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="city" class="form-label">Ville:</label>
+        <input type="text" class="form-control" id="city" placeholder="Entrez la ville" [(ngModel)]="contact.address.city" name="city" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="zip" class="form-label">Code postal:</label>
+        <input type="text" class="form-control" id="zip" placeholder="Entrez le code postal" [(ngModel)]="contact.address.zip" name="zip" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="country" class="form-label">Pays:</label>
+        <input type="text" class="form-control" id="country" placeholder="Entrez le pays" [(ngModel)]="contact.address.country" name="country" required>
+      </div>
+
+      <h5><i class="bi bi-telephone-fill"></i> Téléphones</h5>
+      <div class="mb-3">
+        <label for="fixePhoneNumber" class="form-label">Téléphone Fixe:</label>
+        <input type="text" class="form-control" id="fixePhoneNumber" placeholder="Entrez le numéro de téléphone fixe" [(ngModel)]="contact.phones[0].phoneNumber" name="fixePhoneNumber" required>
+        </div>
+
+      <div class="mb-3">
+        <label for="mobilePhoneNumber" class="form-label">Téléphone Mobile:</label>
+        <input type="text" class="form-control" id="mobilePhoneNumber" placeholder="Entrez le numéro de mobile" [(ngModel)]="contact.phones[1].phoneNumber" name="mobilePhoneNumber" required>
+        </div>
+    <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Ajouter le contact</button>
+    </form>
   </div>
 </router-outlet>

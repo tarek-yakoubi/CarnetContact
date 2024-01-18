@@ -5,6 +5,7 @@ import { Contact } from '../add-contact/add-contact.model';
 import { ContactGroupService } from '../contact-group/contact-group.service';
 import { Router } from '@angular/router';
 import { ContactGroupDTO } from '../contact-group/contact-group-dto';
+import { ContactDTO } from '../list-contacts/contact-dto';
 
 @Component({
   selector: 'app-create-contact-group',

@@ -1,26 +1,31 @@
-<button class="btn btn-primary mb-4" (click)="openCreateContactGroupComponent()">+</button>
-<form [formGroup]="addToGroupForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="selectedContact">Sélectionnez un contact :</label>
-<select id="selectedContact" formControlName="selectedContact">
-<option value="">Choisir un contact</option>
-<option *ngFor="let contact of availableContacts" [value]="contact.idContact">
-{{ contact.firstName }} {{ contact.lastName }}
-</option>
-</select>
+<div class="container mt-4">
+  <button class="btn btn-primary mb-4" (click)="openCreateContactGroupComponent()">
+    <i class="bi bi-plus-lg"></i>
+  </button>
 
-  </div>
-  <div>
-    <label for="selectedGroup">Sélectionnez un groupe :</label>
-    <select id="selectedGroup" formControlName="selectedGroup">
-      <option value="">Choisir un groupe</option>
-      <option *ngFor="let group of availableGroups" [value]="group.idContactGroup">
-        {{ group.groupName }}
-      </option>
-    </select>
-  </div>
-<button type="submit"
+  <form [formGroup]="addToGroupForm" (ngSubmit)="onSubmit()" class="mb-4">
+    <div class="mb-3">
+      <label for="selectedContact" class="form-label">Sélectionnez un contact :</label>
+      <select id="selectedContact" formControlName="selectedContact" class="form-select">
+        <option value="">Choisir un contact</option>
+        <option *ngFor="let contact of availableContacts" [value]="contact.idContact">
+          {{ contact.firstName }} {{ contact.lastName }}
+        </option>
+      </select>
+    </div>
 
-[disabled]="!addToGroupForm.valid">Ajouter au groupe</button>
+    <div class="mb-3">
+      <label for="selectedGroup" class="form-label">Sélectionnez un groupe :</label>
+      <select id="selectedGroup" formControlName="selectedGroup" class="form-select">
+        <option value="">Choisir un groupe</option>
+        <option *ngFor="let group of availableGroups" [value]="group.idContactGroup">
+          {{ group.groupName }}
+        </option>
+      </select>
+    </div>
 
-</form>
+    <button type="submit" class="btn btn-success" [disabled]="!addToGroupForm.valid">
+      Ajouter au groupe
+    </button>
+  </form>
+</div>

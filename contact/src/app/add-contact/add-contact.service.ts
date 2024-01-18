@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Contact } from './add-contact.model';
+import { ContactDTO } from '../list-contacts/contact-dto';
 
 @Injectable({
     providedIn: 'root'
@@ -25,7 +26,7 @@ export class ContactService {
     }
 
     getAllContacts(): Observable<Contact[]> {
-      return this.http.get<Contact[]>(this.baseUrl, this.httpOptions);
+        return this.http.get<Contact[]>(this.baseUrl, this.httpOptions);
     }
 
     getContactById(id: number): Observable<Contact> {

@@ -1,17 +1,33 @@
-<button class="btn btn-primary mb-4" (click)="openCreateContactGroupComponent()">Créer un nouveau groupe</button>
+<div class="contact-group-container">
+  <div class="button-container d-flex justify-content-start mb-4">
+    <button class="btn btn-primary mr-2" (click)="openCreateContactGroupComponent()" title="Créer un nouveau groupe">
+      <i class="bi bi-plus-circle"></i> Créer un nouveau groupe
+    </button>
+    <button class="btn btn-secondary" (click)="addContactToGroup()" title="Ajouter un contact à un groupe">
+      <i class="bi bi-person-plus"></i> Ajouter un contact à un groupe
+    </button>
+  </div>
 
-<button class="btn btn-primary mb-4" (click)="addContactToGroup() ">Ajouter un contact à un groupe</button>
-<div *ngIf="contactGroups.length; else noGroups">
-  <ul>
-    <li *ngFor="let group of contactGroups">
-      {{ group.groupName }} - {{ group.contactIds.length }} contacts
-      <button class="btn btn-secondary" (click)="editContactGroup(group.idContactGroup)">Modifier</button>
-      <button class="btn btn-secondary" (click)="getContactGroupById(group.idContactGroup)">Dive</button>
-      <button class="btn btn-secondary" (click)="deleteContactGroup(group.idContactGroup)">Supprimer</button>
-    </li>
-  </ul>
+
+  <div *ngIf="contactGroups.length; else noGroups">
+      <div class="card" *ngFor="let group of contactGroups">
+          <div class="card-body" >
+            <div class="d-flex justify-content-start">
+              <h5 class="card-title d-flex" >{{ group.groupName }} - {{ group.contactIds.length }} contacts</h5>
+            </div>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary" (click)="getContactGroupById(group.idContactGroup)" title="Voir le groupe">
+                  <i class="bi bi-eye"></i>
+                </button>
+                <button class="btn btn-outline-danger" (click)="deleteContactGroup(group.idContactGroup)" title="Supprimer le groupe">
+                  <i class="bi bi-trash"></i>
+              </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <ng-template #noGroups>
+      <p class="text-center no-groups-text">Aucun groupe de contacts trouvé.</p>
+  </ng-template>
 </div>
-
-<ng-template #noGroups>
-  <p>Aucun groupe de contacts trouvé.</p>
-</ng-template>

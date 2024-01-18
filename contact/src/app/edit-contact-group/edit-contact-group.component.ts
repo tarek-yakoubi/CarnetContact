@@ -35,7 +35,7 @@ export class EditContactGroupComponent implements OnInit {
     this.loadGroupData();
     this.contactService.getAllContacts().subscribe(
       contacts => {
-        this.availableContacts = contacts;
+        //this.availableContacts = contacts;
       },
       error => console.error('Error fetching contacts:', error)
     );
@@ -44,7 +44,7 @@ export class EditContactGroupComponent implements OnInit {
 
   loadContacts() {
     this.contactService.getAllContacts().subscribe(
-      (contacts: Contact[]) => this.availableContacts = contacts,
+      //(contacts: Contact[]) => this.availableContacts = contacts,
       error => console.error('Error fetching contacts:', error)
     );
   }

@@ -6,6 +6,7 @@ import { ContactGroupService } from '../contact-group/contact-group.service';
 import { ContactService } from '../add-contact/add-contact.service';
 import { ContactGroup } from '../contact-group/contact-group.model';
 import { ContactGroupDTO } from '../contact-group/contact-group-dto';
+import { ContactDTO } from '../list-contacts/contact-dto';
 
 @Component({
   selector: 'app-contact-group-zoom',
