@@ -1,0 +1,26 @@
+
+<div class="edit-contact-group">
+  <form [formGroup]="editGroupForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+          <label for="groupName">Nom du Groupe:</label>
+          <input type="text" id="groupName" formControlName="groupName" class="form-control">
+          <div *ngIf="editGroupForm.get('groupName')?.invalid && editGroupForm.get('groupName')?.touched">
+          </div>
+      </div>
+
+      <div formArrayName="contactCheckboxes">
+        <ul *ngFor="let control of contactControls; let i = index">
+            <input type="checkbox" [formControlName]="i"/>
+            {{ availableContacts[i] }}
+        </ul>
+      </div>
+
+      <ul *ngFor="let contact of availableContacts">
+
+        {{ contact.firstName }}
+    </ul>
+
+      <button type="submit" class="btn btn-primary" [disabled]="editGroupForm.invalid">Mettre à jour le groupe</button>
+  </form>
+</div>

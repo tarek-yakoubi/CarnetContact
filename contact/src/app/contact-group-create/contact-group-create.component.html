@@ -1,0 +1,7 @@
+<form [formGroup]="createGroupForm" (ngSubmit)="onSubmit()" class="my-form">
+  <div class="mb-3">
+    <label for="groupName" class="form-label">Nom du groupe :</label>
+    <input id="groupName" type="text" formControlName="groupName" class="form-control" placeholder="Entrez le nom du groupe" required>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!createGroupForm.valid">Créer le groupe</button>
+</form>

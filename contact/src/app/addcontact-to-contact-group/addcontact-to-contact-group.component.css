@@ -1,0 +1,22 @@
+.btn-plus {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-plus:hover {
+  background-color: #0056b3;
+}
+
+.form-select {
+  width: 100%;
+  padding: .375rem 1.75rem .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+
+.btn-success:disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}

@@ -1,0 +1,40 @@
+.input-group .form-control {
+  border-right: 0;
+}
+
+.input-group .form-control:focus {
+  box-shadow: none;
+  border-color: #007bff;
+}
+
+.input-group .btn {
+  border-left: 0;
+}
+
+.card {
+  height: 300px;
+  overflow: auto;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header, .card-footer {
+  background-color: #f8f9fa;
+}
+
+.card-footer button {
+  margin-right: 10px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}

@@ -1,0 +1,16 @@
+.contact-group-container {
+  padding: 20px;
+}
+.card {
+  margin-bottom: 15px;
+}
+.card-title {
+  margin-bottom: 10px;
+}
+.card-body button {
+  margin-right: 10px;
+}
+.no-groups-text {
+  font-size: 18px;
+  color: #666;
+}

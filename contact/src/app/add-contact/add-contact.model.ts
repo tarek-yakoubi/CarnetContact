@@ -1,33 +1,13 @@
-export class Contact {
-  idContact: number = 0;
-  firstName: string = '';
-  lastName: string = '';
-  email: string = '';
-  address: {
-      street: string;
-      city: string;
-      zip: string;
-      country: string;
-  };
-  phones: {
-      phoneKind: string;
-      phoneNumber: string;
-  }[] = [];
+import { ContactGroup } from './../contact-group/contact-group.model';
+import { Address } from "./adresse.model";
+import { Phone } from "./phones.model";
 
-  constructor() {
-    this.idContact = 0;
-    this.firstName = '';
-    this.lastName = '';
-    this.email = '';
-    this.address = {
-        street: '',
-        city: '',
-        zip: '',
-        country: ''
-    };
-    phones: [
-            { phoneKind: 'fixe', phoneNumber: '' },
-            { phoneKind: 'mobile', phoneNumber: '' }
-        ]
-  }
+export interface Contact {
+  idContact: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: Address;
+  phones: Phone[];
+  contactGroups: ContactGroup[];
 }
